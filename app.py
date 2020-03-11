@@ -21,7 +21,7 @@ def predict():
     tmp = re.sub("\\\\", "", body_dict)
     #txt=tmp.replace('\\','')
     #jsontxt=json.loads(txt)
-    txtList=list(tmp)
+    txtList=json.loads(tmp)
     clean_content=[]
     #scrape_txt['content']=[c.lower() for c in data['content']]
     #for content in txtList:
