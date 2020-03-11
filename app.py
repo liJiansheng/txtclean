@@ -15,7 +15,7 @@ def predict():
     # get data
    
     body_dict = json.loads(request.get_data().decode('utf-8')) 
-    data = body_dict['content']
+    data = json.loads(body_dict)
     # predictions
 
     txt=""
@@ -39,7 +39,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return data
+    return data['content']
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
