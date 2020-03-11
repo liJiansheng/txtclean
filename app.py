@@ -1,6 +1,12 @@
 import pandas as pd
 from flask import Flask, jsonify, request,json
-
+import sklearn
+from sklearn.feature_extraction.text import TfidfVectorizer
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import RegexpTokenizer
+from nltk.corpus import stopwords
+import re
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
@@ -33,7 +39,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return r
+    return data
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
