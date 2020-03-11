@@ -17,9 +17,9 @@ app = Flask(__name__)
 def predict():
     # get data
    
-    body_dict = request.get_json()
-    
-    data = body_dict['content']
+    body_dict = json.loads(request.get_data().decode('utf-8')) 
+    body_json=ast.literal_eval(body_dict)
+    #data = body_dict['content']
     # predictions
 
     #tmp = re.sub("\\\\", "", body_dict)
@@ -43,14 +43,13 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return data['content']
+    return body_json['content']
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
     # The input is a single string (a raw movie review), and 
     # the output is a single string (a preprocessed movie review)
     
-    # 1. Remove HTML.
     # 3. Convert to lower case, split into individual words.
     words = raw_content.lower().split()
     
