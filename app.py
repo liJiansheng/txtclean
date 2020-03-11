@@ -18,8 +18,8 @@ def predict():
     #data = body_dict['content']
     # predictions
 
-    tmp=body_dict.replace('/','')
-    txt=tmp.replace("\","")
+    #tmp=body_dict.replace('/','')
+    txt=body_dict.replace('\\','')
     #jsontxt=json.loads(txt)
     scrape_txt={}
 
