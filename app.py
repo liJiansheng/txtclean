@@ -17,9 +17,9 @@ app = Flask(__name__)
 def predict():
     # get data
    
-    body_dict = request.get_json(force=True)
+    body_dict = request.get_json()
     
-    #data = body_dict['content']
+    data = body_dict['content']
     # predictions
 
     #tmp = re.sub("\\\\", "", body_dict)
@@ -43,7 +43,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return body_dict['content']
+    return data['content']
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
@@ -51,13 +51,8 @@ def review_to_words(raw_content):
     # the output is a single string (a preprocessed movie review)
     
     # 1. Remove HTML.
-    content_text = BeautifulSoup(raw_content).get_text()
-    
-    # 2. Remove non-letters.
-    letters_only = re.sub("[^a-zA-Z]", " ", content_text)
-    
     # 3. Convert to lower case, split into individual words.
-    words = letters_only.lower().split()
+    words = raw_content.lower().split()
     
     # 4. In Python, searching a set is much faster than searching
     # a list, so convert the stop words to a set.
