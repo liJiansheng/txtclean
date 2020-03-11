@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 import re
-import ast
+
 
 app = Flask(__name__)
 
@@ -16,14 +16,14 @@ app = Flask(__name__)
 def predict():
     # get data
    
-    body_dict = request.get_data().decode('utf-8')
+    body_dict = request.get_json()
     #data = body_dict['content']
     # predictions
 
-    tmp = re.sub("\\\\", "", body_dict)
+    #tmp = re.sub("\\\\", "", body_dict)
     #txt=tmp.replace('\\','')
     #jsontxt=json.loads(txt)
-    txtList=ast.literal_eval(tmp)
+    
     clean_content=[]
     #scrape_txt['content']=[c.lower() for c in data['content']]
     #for content in txtList:
@@ -41,7 +41,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return txtList
+    return body_dict
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
