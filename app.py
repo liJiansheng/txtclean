@@ -28,9 +28,8 @@ def predict():
     scrape_txt={}
     clean_content=[]
     
-    for k,v in data:
-        v.lower()
-        val=v
+    for i in data:
+        val=i
 
     #scrape_txt['content']=[v.lower() for v in data.values()]
     #for content in scrape_txt['content']:
