@@ -18,8 +18,8 @@ def predict():
     #data = body_dict['content']
     # predictions
 
-    txt=body_dict.replace('/','')
-    t=""
+    tmp=body_dict.replace('/','')
+    txt=tmp.replace("\\","")
     #txtList=data['content']
     scrape_txt={}
 
