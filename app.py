@@ -14,11 +14,11 @@ app = Flask(__name__)
 def predict():
     # get data
    
-    body_dict = request.get_json()
+    body_dict = request.get_data()
     #data = body_dict['content']
     # predictions
 
-    #tmp=body_dict.replace('/','')
+    tmp=body_dict.replace('\\','')
     #jsontxt=json.loads(txt)
     scrape_txt={}
 
@@ -38,7 +38,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return body_dict
+    return tmp
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
