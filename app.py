@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request,json
 import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
+import requests
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
