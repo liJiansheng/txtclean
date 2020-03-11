@@ -17,7 +17,7 @@ app = Flask(__name__)
 def predict():
     # get data
    
-    body_dict = json.loads(request.get_data().decode('utf-8')) 
+    body_dict = request.get_data()
     body_json=ast.literal_eval(body_dict)
     #data = body_dict['content']
     # predictions
