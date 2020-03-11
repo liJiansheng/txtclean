@@ -21,25 +21,24 @@ def predict():
     tmp = re.sub("\\\\", "", body_dict)
     #txt=tmp.replace('\\','')
     #jsontxt=json.loads(txt)
-    scrape_txt={}
-
+    clean_content=[]
     #scrape_txt['content']=[c.lower() for c in data['content']]
-    #for content in scrape_txt['content']:
-        # Convert posts to words, then append to clean_train_content.
-    #    clean_content.append(review_to_words(content))
+    for content in list(tmp):
+        # Convert posts to words, then append to clean_train_content.   
+        clean_content.append(review_to_words(content))
 
-    #tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
+    tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
 # Fit and transform the processed titles
-    #count_data = tfid_vectorizer.fit_transform(scrape_txt['content'])    
+    count_data = tfid_vectorizer.fit_transform(clean_content)    
 
-    #r = requests.post(url = "https://news-model.herokuapp.com/", data = count_data) 
+    r = requests.post(url = "https://news-model.herokuapp.com/", data = count_data) 
 # S3 Connect
     #s3 = boto3.client('s3')
 
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return tmp
+    return r.json()
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
