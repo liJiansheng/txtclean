@@ -32,9 +32,10 @@ def predict():
     
     for i in data:
         smtxt.append(data[i])
-    for content in smtxt:
+
+    for c in range(len(smtxt)):
         # Convert posts to words, then append to clean_train_content.   
-        clean_content.append(review_to_words(content))
+        clean_content.append(review_to_words(smtxt[c]))
 
     #tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
     # Fit and transform the processed titles
@@ -47,7 +48,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return content
+    return smtxt[c]
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
