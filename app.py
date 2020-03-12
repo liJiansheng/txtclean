@@ -39,7 +39,7 @@ def predict():
 
     tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
     # Fit and transform the processed titles
-    count_data = tfid_vectorizer.fit_transform(smtxt)    
+    count_data = tfid_vectorizer.fit_transform(data)    
 
     #r = requests.post(url = "https://news-model.herokuapp.com/", data = count_data) 
 # S3 Connect
