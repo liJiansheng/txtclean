@@ -29,9 +29,9 @@ def predict():
     clean_content=[]
 
     scrape_txt['content']=[data[i].lower() for i in data]
-    for content in scrape_txt['content']:
+    #for content in scrape_txt['content']:
         # Convert posts to words, then append to clean_train_content.   
-        clean_content.append(review_to_words(content))
+    #    clean_content.append(review_to_words(content))
 
     #tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
     # Fit and transform the processed titles
