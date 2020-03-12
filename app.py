@@ -33,6 +33,7 @@ def predict():
     for i in data:
         smtxt.append(data[i])
 
+    datajson=json.loads(data)
     #for c in range(len(smtxt)):
         # Convert posts to words, then append to clean_train_content.   
     #    clean_content.append(review_to_words(smtxt[c]))
@@ -41,7 +42,7 @@ def predict():
     # Fit and transform the processed titles
     #count_data = tfid_vectorizer.fit_transform(data[i])    
 
-    r = requests.post(url = "https://news-model.herokuapp.com/", data = data) 
+    r = requests.post(url = "https://news-model.herokuapp.com/", json = datajson) 
 # S3 Connect
     #s3 = boto3.client('s3')
 
