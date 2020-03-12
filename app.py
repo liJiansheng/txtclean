@@ -28,8 +28,8 @@ def predict():
     scrape_txt={}
     clean_content=[]
     smtxt=[]
-    scrape_txt['content']=[data[i].lower() for i in data]
-    txtjson=json.loads(scrape_txt)
+    #scrape_txt['content']=[data[i].lower() for i in data]
+    #txtjson=json.loads(scrape_txt)
     
     for i in data:
         smtxt.append(data[i])
