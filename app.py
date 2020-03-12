@@ -47,7 +47,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return clean_content[0]
+    return content
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
