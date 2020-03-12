@@ -25,7 +25,6 @@ def predict():
     #tmp = re.sub("\\\\", "", body_dict)
     #txt=tmp.replace('\\','')
     #jsontxt=json.loads(txt)
-    scrape_txt={}
     clean_content=[]
     smtxt=[]
     #scrape_txt['content']=[data[i].lower() for i in data]
@@ -33,9 +32,9 @@ def predict():
     
     for i in data:
         smtxt.append(data[i])
-    #for content in scrape_txt['content']:
+    for content in smtxt:
         # Convert posts to words, then append to clean_train_content.   
-    #    clean_content.append(review_to_words(content))
+        clean_content.append(review_to_words(content))
 
     #tfid_vectorizer = TfidfVectorizer(max_df=.8,ngram_range=(1,2))
     # Fit and transform the processed titles
@@ -48,7 +47,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return smtxt[0]
+    return clean_content[0]
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
