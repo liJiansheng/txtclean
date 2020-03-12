@@ -32,7 +32,7 @@ def predict():
     txtjson=json.loads(scrape_txt)
     
     for i in data:
-        smtxt.append(data[i].lower())
+        smtxt.append(data[i])
     #for content in scrape_txt['content']:
         # Convert posts to words, then append to clean_train_content.   
     #    clean_content.append(review_to_words(content))
