@@ -27,9 +27,12 @@ def predict():
     #jsontxt=json.loads(txt)
     scrape_txt={}
     clean_content=[]
-
+    smtxt=[]
     scrape_txt['content']=[data[i].lower() for i in data]
     txtjson=json.loads(scrape_txt)
+    
+    for i in data:
+        smtxt.append(data[i].lower())
     #for content in scrape_txt['content']:
         # Convert posts to words, then append to clean_train_content.   
     #    clean_content.append(review_to_words(content))
@@ -45,7 +48,7 @@ def predict():
     # Uploaded File
     #s3.put_object(Bucket=BUCKET_NAME, Key=FILE_NAME, Body=txt)
 
-    return txtjson['content']
+    return smtxt[1]
     
 def review_to_words(raw_content):
     # Function to convert a raw review to a string of words
