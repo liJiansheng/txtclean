@@ -11,7 +11,7 @@ beautifulsoup4==4.8.0
 boto==2.49.0
 boto3==1.11.8
 botocore==1.14.8
-joblib==0.13.2
+joblib==1.2.0
 json5==0.8.5
 nltk==3.4.5
 numpy==1.18.1
